@@ -1,0 +1,110 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.blog {
+    
+    padding-top: 50px;
+    &__title {
+        margin-top: 50px;
+        &-h3 {
+            text-align: left;
+        }
+    }
+    &__wrapper {
+        margin-top: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    &__card {
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+        background: $light;
+        border: 1px solid $dark;
+    }
+    &__data {
+        &-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 25px 25px 0 25px;
+        }
+    }
+    &__text {
+        margin-top: 25px;
+        padding: 0 25px 25px 25px;
+        font-weight: 400;
+        font-size: 16px;
+        color: $dark;
+    }
+    &__img {
+        display: block;
+        max-inline-size: calc(100% + 2px);
+        transform: translateY(-1px);
+        transform: translateX(-1px);
+        object-fit: cover;
+
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blog {
+       &__wrapper {
+        position: relative;
+        padding: 25px 25px 0 25px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 200px;
+            height: 1px;
+            background-color: $dark;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            transform: rotate(90deg);
+            top: 100px;
+            left: -100px;
+            width: 200px;
+            height: 1px; 
+            background-color: $dark;
+        }
+        }
+        &__text {
+            margin-top: 15px;
+        }
+        &__data {
+            &-column {
+                gap: 0;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .blog {
+        &__wrapper {
+            gap: 50px;
+        }
+        &__card {
+            width: 520px;
+            height: fit-content;
+        }
+        &__img {
+            height: 240px;
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .blog {
+        &__wrapper {
+            margin-top: 100px;
+        }
+        &__card {
+            width: calc(50% - 50px);
+
+        }
+    }
+}
